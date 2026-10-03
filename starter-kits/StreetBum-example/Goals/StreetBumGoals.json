@@ -1,0 +1,66 @@
+[
+    {
+        "name": "WANDER",
+        "displayName": "Wandering",
+        "description": "Aimlessly drifts through the area when no other goal needs attention.",
+        "internal": true,
+        "basePriority": 0.01,
+        "desiredState": {
+            "IsWandering": {
+                "label": "Wandering",
+                "equals": true
+            }
+        },
+        "metadata": {
+            "CompletionAnimations": [
+                "idle_down",
+                "idle_up"
+            ],
+            "CompletionDuration": 5.0,
+            "CompletionDurationVariance": 3.0
+        }
+    },
+    {
+        "name": "FLEE",
+        "displayName": "Flee",
+        "description": "Runs away from a nearby threat at top speed. Activates automatically when a hostile gets too close.",
+        "system": true,
+        "basePriority": 8.0,
+        "desiredState": {
+            "Safe": {
+                "label": "Safe",
+                "equals": true
+            }
+        },
+        "metadata": {
+            "CompletionAnimations": [
+                "walk_down",
+                "walk_up"
+            ],
+            "CompletionDuration": 8.0,
+            "CompletionDurationVariance": 2.0,
+            "CompletionThoughtIcon": "flee_icon"
+        }
+    },
+    {
+        "name": "FIGHT",
+        "displayName": "Fight",
+        "description": "Engages a nearby threat. System goal - always outranks player goals.",
+        "system": true,
+        "basePriority": 12.0,
+        "desiredState": {
+            "ThreatEliminated": {
+                "label": "Threat Eliminated",
+                "equals": true
+            }
+        },
+        "metadata": {
+            "CompletionPauseTicks": 0,
+            "CompletionAnimations": [
+                "idle_down"
+            ],
+            "CompletionDuration": 0.5,
+            "CompletionDurationVariance": 0.0
+        }
+    }
+]

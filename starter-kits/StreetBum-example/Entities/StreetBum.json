@@ -1,0 +1,203 @@
+{
+    "entityType": "StreetBum",
+    "displayName": "StreetBum",
+    "icon": "🧍",
+    "color": [
+        0.6,
+        0.6,
+        0.6
+    ],
+    "traitProfessions": [
+        "Universal"
+    ],
+    "pawnLayers": {
+        "headsRoot": "Assets/Heads",
+        "weaponSpritesRoot": "Assets/Weapons/Ranged"
+    },
+    "namesRoot": "Assets/Names/names.json",
+    "traitStartupCaps": {
+        "CorePersonality": 50,
+        "MoralEthical": 50
+    },
+    "propertySchemas": {
+        "IsPlayerControlled": {
+            "editable": "game",
+            "type": "bool",
+            "displayName": "Player Controlled",
+            "category": "Control"
+        },
+        "FirstName": {
+            "editable": "game",
+            "type": "string",
+            "displayName": "First Name",
+            "category": "Identity"
+        },
+        "LastName": {
+            "editable": "game",
+            "type": "string",
+            "displayName": "Last Name",
+            "category": "Identity"
+        },
+        "Gender": {
+            "editable": "game",
+            "type": "enum",
+            "values": [
+                "Male",
+                "Female",
+                "Other"
+            ],
+            "displayName": "Gender",
+            "category": "Identity"
+        },
+        "Age": {
+            "editable": "game",
+            "type": "int",
+            "min": 18,
+            "max": 75,
+            "displayName": "Age",
+            "category": "Identity"
+        },
+        "Health": {
+            "editable": "game",
+            "type": "int",
+            "min": 0,
+            "max": 100,
+            "displayName": "Health",
+            "category": "Status"
+        },
+        "Cash": {
+            "editable": "game",
+            "type": "float",
+            "min": 0,
+            "displayName": "Cash ($)",
+            "category": "Resources"
+        },
+        "IsAlive": {
+            "editable": "game",
+            "type": "bool",
+            "displayName": "Alive",
+            "category": "State"
+        },
+        "BehaviorType": {
+            "editable": "game",
+            "type": "string",
+            "displayName": "Behavior Type",
+            "category": "AI"
+        },
+        "IsWandering": {
+            "editable": "game",
+            "type": "bool",
+            "displayName": "Is Wandering",
+            "category": "AI"
+        },
+        "ThreatNearby": {
+            "editable": "game",
+            "type": "bool",
+            "displayName": "Threat Nearby",
+            "category": "Combat",
+            "tooltip": "True when a hostile entity is within threat radius"
+        },
+        "ThreatEntityId": {
+            "editable": "game",
+            "type": "int",
+            "displayName": "Threat Entity ID",
+            "category": "Combat",
+            "tooltip": "Entity ID of nearest hostile (-1 when none)"
+        },
+        "ThreatEliminated": {
+            "editable": "game",
+            "type": "bool",
+            "displayName": "Threat Eliminated",
+            "category": "Combat",
+            "tooltip": "Set true when combat target is dead or fled"
+        },
+        "Safe": {
+            "editable": "game",
+            "type": "bool",
+            "displayName": "Safe",
+            "category": "Combat",
+            "tooltip": "True when entity has fled far enough from the threat"
+        },
+        "DisplayHeight": {
+            "editable": "never",
+            "type": "int",
+            "displayName": "Display Height",
+            "category": "Internal"
+        },
+        "GoalPriorities": {
+            "editable": "never",
+            "type": "object",
+            "displayName": "Goal Priorities",
+            "category": "Internal",
+            "tooltip": "Use goal table to edit priorities"
+        },
+        "ProximityRadius": {
+            "editable": "game",
+            "type": "float",
+            "min": 0,
+            "max": 500,
+            "displayName": "Proximity Radius",
+            "category": "Interaction"
+        },
+        "InteractionRules": {
+            "editable": "never",
+            "type": "array",
+            "displayName": "Interaction Rules",
+            "category": "Internal"
+        }
+    },
+    "instances": [
+        {
+            "name": "Sample StreetBum A",
+            "type": "StreetBum",
+            "x": 3000.0,
+            "y": 2000.0,
+            "properties": {
+                "BehaviorType": "StreetBum",
+                "IsWandering": false,
+                "IsPlayerControlled": false,
+                "Gender": "Male",
+                "Age": 40,
+                "Health": 100,
+                "Cash": 5,
+                "IsAlive": true,
+                "DisplayHeight": 48,
+                "GoalPriorities": {
+                    "WANDER": 1
+                },
+                "ProximityRadius": 48.0,
+                "InteractionRules": [],
+                "ThreatNearby": false,
+                "ThreatEntityId": -1,
+                "ThreatEliminated": false,
+                "Safe": false
+            }
+        },
+        {
+            "name": "Sample StreetBum B",
+            "type": "StreetBum",
+            "x": 3400.0,
+            "y": 2300.0,
+            "properties": {
+                "BehaviorType": "StreetBum",
+                "IsWandering": false,
+                "IsPlayerControlled": false,
+                "Gender": "Male",
+                "Age": 35,
+                "Health": 100,
+                "Cash": 5,
+                "IsAlive": true,
+                "DisplayHeight": 48,
+                "GoalPriorities": {
+                    "WANDER": 1
+                },
+                "ProximityRadius": 48.0,
+                "InteractionRules": [],
+                "ThreatNearby": false,
+                "ThreatEntityId": -1,
+                "ThreatEliminated": false,
+                "Safe": false
+            }
+        }
+    ]
+}

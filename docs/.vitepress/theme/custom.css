@@ -1,0 +1,16 @@
+/* BBox: Kingpin wiki palette. Burgundy / amber crime-noir accents. */
+:root {
+  --vp-c-brand-1: #a5293a;
+  --vp-c-brand-2: #8f2333;
+  --vp-c-brand-3: #7c1f2b;
+  --vp-c-brand-soft: rgba(165, 41, 58, 0.14);
+
+  --vp-home-hero-name-color: #a5293a;
+}
+
+.dark {
+  --vp-c-brand-1: #e0657a;
+  --vp-c-brand-2: #d14f66;
+  --vp-c-brand-3: #b33a50;
+  --vp-c-brand-soft: rgba(224, 101, 122, 0.16);
+}
