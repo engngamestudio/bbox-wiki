@@ -4,17 +4,38 @@ Every person in the game carries a large set of **traits**: numeric values descr
 current state. Traits are what make one crew member loyal muscle and another a future rat. This page explains
 how traits are stored, how they change, and how they change behavior.
 
+## Not a spreadsheet
+
+The trait system is not a stat block. It is the foundation for simulating people, and that is the long game of this
+project.
+
+- **Every one of the 552 traits is a dimension, not a decoration.** A trait is not there only to flavor a backstory.
+  It is a hook that behavior can be hung on. Any trait can be deepened: given new effects, new thresholds, new
+  interactions, new drama.
+- **Depth compounds.** The game gets deeper not by adding more pawns but by wiring more of these dimensions into
+  [GOAP](/systems/goap), [drama](/systems/drama), [combat](/systems/combat), and the [economy](/systems/economy). A
+  trait that today only colors a dossier can tomorrow gate a goal, shift a fight, or trigger a breakdown.
+- **This is endless by design.** The target is not a fixed feature list. It is a long march toward people who feel
+  real: who carry a past, change from what they live through, and surprise you. Every trait wired deeper is a step
+  toward that, and there is always another step.
+
+> [!IMPORTANT]
+> We are not building a spreadsheet of numbers. We are building people. The traits are the raw material; the depth
+> comes from [traits plus drama plus the rest of the systems](/guide/core-loop) compounding into behavior nobody
+> scripted.
+
 ## Inventory
 
-There are **542 traits across 17 categories**. Most exist for backstory depth and readable character; a focused
-subset drives gameplay (see [what actually matters](#what-actually-drives-behavior)).
+There are **552 traits across 17 categories**. See the complete list with descriptions in the
+[Full Trait Catalog](/systems/trait-catalog). Today a focused subset is wired to live gameplay (see
+[what drives behavior](#what-actually-drives-behavior)); the rest are dimensions waiting to be deepened.
 
 | # | Category | Count | Applies to |
 | --- | --- | --- | --- |
 | 01 | CorePersonality | 17 | All |
 | 02 | SubstanceUse | 33 | All |
 | 03 | TraumaMentalHealth | 49 | All |
-| 04 | CriminalHistory | 46 | Criminal |
+| 04 | CriminalHistory | 56 | Criminal |
 | 05 | FamilyBackground | 49 | All |
 | 06 | SocialRelationships | 50 | All |
 | 07 | CognitiveSkills | 52 | All |
@@ -133,9 +154,20 @@ directly:
 
 ## What actually drives behavior
 
-Of the 542 traits, a focused subset is wired to gameplay today (gates, thresholds, combat, inference). The rest
-provide backstory texture and readable character sheets. The design direction is to widen that subset over time
-so more of a pawn's history ripples into how they act.
+Of the 552 traits, a focused subset is wired to live gameplay today: the ones referenced by goal gates, threshold
+events, combat scoring, and inference. The rest are not idle flavor; they are **dimensions not yet wired**. Each one
+is a place the simulation can grow deeper.
+
+| State of a trait | What it means | Where it goes next |
+| --- | --- | --- |
+| Wired | Already gates goals, shifts outcomes, or triggers [drama](/systems/drama) | Tuned and balanced |
+| Seeded, readable | Set at worldgen, visible in a [dossier](/systems/intelligence), shapes character | A candidate to wire into behavior |
+| Dormant | Defined and carried, waiting for its hook | The backlog of depth |
+
+This is the engine of the game's long-term depth: every pass wires more of the [catalog](/systems/trait-catalog)
+into [GOAP](/systems/goap), [drama](/systems/drama), [combat](/systems/combat), and the
+[economy](/systems/economy), so more of who a person *is* ripples into what they *do*. See
+[Not a spreadsheet](#not-a-spreadsheet).
 
 ## Related
 

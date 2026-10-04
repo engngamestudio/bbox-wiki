@@ -66,6 +66,7 @@ export default defineConfig({
             { text: 'GOAP: How Pawns Decide', link: '/systems/goap' },
             { text: 'Emergent Design: Atomic Goals', link: '/systems/atomic-goals' },
             { text: 'Crew, Traits & Loyalty', link: '/systems/traits' },
+            { text: 'Full Trait Catalog (552)', link: '/systems/trait-catalog' },
             { text: 'The Historian', link: '/systems/historian' },
             { text: 'Drama & Emergent Events', link: '/systems/drama' }
           ]

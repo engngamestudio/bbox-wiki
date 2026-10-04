@@ -12,6 +12,7 @@ tuning knobs that drive them. It is reference-first: tables and formulas over pr
 | [GOAP](/systems/goap) | Which goal a pawn pursues this tick | priority math |
 | [Atomic Goals](/systems/atomic-goals) | Why stories emerge instead of being scripted | design principle |
 | [Traits](/systems/traits) | Who a pawn is and what they unlock | threshold tables |
+| [Trait Catalog](/systems/trait-catalog) | All 552 traits with descriptions | full reference |
 | [Historian](/systems/historian) | A pawn's starting past and seeded traits | worldgen |
 | [Drama](/systems/drama) | Betrayal, defection, breakdowns | trait thresholds + events |
 | [Director](/systems/director) | When pressure fires an event | threat score |
