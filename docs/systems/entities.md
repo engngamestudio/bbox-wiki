@@ -4,8 +4,17 @@ Every pawn in the world is an **entity type** with its own purpose and its own g
 what each type is for, which [faction](/systems/territory#factions-and-ownership) side it sits on, and the goals it
 can pursue with their base priorities.
 
-Goal types are the same as everywhere: **Player** (assignable, usually base `0` until a calculator switches it on),
-**System** (always active, outranks player goals), **Internal** (hidden background and [drama](/systems/drama)).
+**Goal type legend:**
+
+| Type | Meaning |
+| --- | --- |
+| Player | Assignable by you on the goal-priority panel. Only your [gang members](/systems/goap#gang-member-goal-reference) have these. |
+| Player order | Fired by a specific order you issue (a hit contract, a prison play, a green light), not the priority panel. |
+| Mission | Carries out an assigned mission. Assigned by the [Director](/systems/director) or, for some entities, by a player order. |
+| Autonomous | The pawn chooses this on its own from world state. The default for non-crew entities; you do not direct it. |
+| System | Always active and outranks other goals. Driven by sensors (combat, fleeing, arrest). |
+| Internal | Hidden background behavior and [drama](/systems/drama). |
+
 For how a goal's effective priority is computed, see [GOAP](/systems/goap).
 
 ## Your crew
@@ -28,8 +37,7 @@ The [Director](/systems/director) refills them over time so killing them all doe
 
 | Goal | Base | Type |
 | --- | --- | --- |
-| Sell Drugs | 75 | Player |
-| Flee Scene | 70 | Internal (trait-gated) |
+| Sell Drugs | 75 | Autonomous |
 | Wander | 0.01 | Internal |
 
 ### Drug Addict
@@ -39,7 +47,7 @@ Drug Corners and refilled by the Director. Also the target of a stressed member'
 
 | Goal | Base | Type |
 | --- | --- | --- |
-| Get Drugs | 8 | Player (scaled by craving and time of day) |
+| Get Drugs | 8 | Autonomous (scaled by craving and time of day) |
 | Flee | 8 | System |
 | Wander | 0.01 | Internal |
 
@@ -50,7 +58,7 @@ heat than retail.
 
 | Goal | Base | Type |
 | --- | --- | --- |
-| Buy Wholesale | 8 | Player |
+| Buy Wholesale | 8 | Autonomous |
 | Wander | 0.01 | Internal |
 
 ### Debtor
@@ -59,8 +67,8 @@ Someone who **owes you money**. The target of Collect Debt. Will try to avoid yo
 
 | Goal | Base | Type |
 | --- | --- | --- |
-| Pay Debt | 6 | Player |
 | Flee | 8 | System |
+| Pay Debt | 6 | Autonomous |
 | Wander | 0.01 | Internal |
 
 ### Drug Corner
@@ -73,21 +81,21 @@ customers. See [Territory](/systems/territory).
 ### Police Officer
 
 The law. Patrol weight and arrest aggression scale with [heat](/systems/heat#how-heat-changes-police-behavior).
-Officers have their own [trait](/systems/traits)-gated dark turns (burnout, excessive force, planting evidence).
 
 | Goal | Base | Type |
 | --- | --- | --- |
-| Mental Break, Rage | 90 | Internal (trait-gated) |
-| Use Excessive Force | 80 | Internal (trait-gated) |
-| Solve Cases | 75 | Player |
-| Burnout | 70 | Internal (trait-gated) |
-| Plant Evidence | 65 | Internal (trait-gated) |
-| Maintain Order | 60 | Player |
-| Patrol Beat | 50 | Player (scaled by heat and time of day) |
+| Solve Cases | 75 | Autonomous |
+| Maintain Order | 60 | Autonomous |
+| Patrol Beat | 50 | Autonomous (scaled by heat and time of day) |
 | Arrest Suspect | 13 | System |
 | Fight | 12 | System |
-| Execute Mission | 10 | Player |
+| Execute Mission | 10 | Mission |
 | Wander | 0.01 | Internal |
+
+> [!WARNING]
+> **Planned, not yet implemented.** The officer "dark turn" drama goals (Mental Break Rage, Use Excessive Force,
+> Burnout, Plant Evidence) exist in the data with trait gates, but their actions were never built, so they cannot
+> currently fire. They are not live behavior yet.
 
 ### Corrupt Officer
 
@@ -109,18 +117,22 @@ A greedy defector who leaves you can become one.
 | Goal | Base | Type |
 | --- | --- | --- |
 | Fight | 12 | System |
-| Execute Mission | 10 | Player |
-| Sell Drugs | 2 | Player |
+| Execute Mission | 10 | Mission (Director) |
+| Sell Drugs | 2 | Autonomous |
 | Wander | 0.01 | Internal |
+
+> [!NOTE]
+> Rival Sell Drugs is real but finite: rivals spawn with about 200g and have no restock goal, so they deal until
+> they run out and then stop. It is a low-priority background behavior, not a full economy loop like your crew's.
 
 ### Hitman
 
-A contract killer. Mission-driven: appears to carry out a hit, then leaves.
+A contract killer you **hire**. The hit is a player order: you pick the target, the hitman carries it out.
 
 | Goal | Base | Type |
 | --- | --- | --- |
 | Fight | 12 | System |
-| Execute Mission | 10 | Player |
+| Execute Mission | 10 | Mission (player-ordered) |
 | Wander | 0.01 | Internal |
 
 ### Raid Agent
@@ -130,18 +142,18 @@ The squad behind an FBI or SWAT raid. Spawned by the [Director](/systems/directo
 | Goal | Base | Type |
 | --- | --- | --- |
 | Fight | 12 | System |
-| Execute Mission | 10 | Player |
+| Execute Mission | 10 | Mission (Director) |
 | Wander | 0.01 | Internal |
 
 ### Prisoner
 
 An incarcerated pawn. Used for the prison plays described under [Combat](/systems/combat#arrests) and
-[Betrayal](/systems/betrayal) (remove a rival or a talking informant quietly).
+[Betrayal](/systems/betrayal): you can order a hit inside to remove a rival or a talking informant quietly.
 
 | Goal | Base | Type |
 | --- | --- | --- |
 | Fight | 12 | System |
-| Execute Mission | 10 | Player |
+| Execute Mission | 10 | Mission (player-ordered) |
 
 ## Civilians and recruits
 

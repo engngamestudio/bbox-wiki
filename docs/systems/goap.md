@@ -84,29 +84,47 @@ type, and every weight calculator that shapes it. For a per-entity overview of a
 
 | Type | Meaning |
 | --- | --- |
-| Player | Assignable on the goal-priority panel. Base priority is usually `0`, so a calculator (often `target_available`) must switch it on before it competes. |
-| System | Always active and outranks player goals. Fires automatically when its conditions are met. |
+| Player | You rank it on the crew priority panel (see [Player controls](#player-controls)). A gang member has 16 of these. |
+| Player order | Fired by a specific order you issue (a Green Light kill order), not the priority panel. |
+| Mission | Carries out an assigned mission. Assigned by the [Director](/systems/director) or by a player-driven service. |
+| System | Always active and outranks player goals. Driven by sensors (combat, arrest, fleeing). |
 | Internal | Hidden from the player panel. Background behavior and [drama](/systems/drama). |
 
-Most player business goals start at base `0` on purpose: they stay dormant until there is something to act on, then
+Most Player business goals start at base `0` on purpose: they stay dormant until there is something to act on, then
 scale with heat, cash, stock, and time of day.
+
+### Player controls
+
+You influence a gang member two ways, both soft [nudges](/systems/economy#crew-commands-are-nudges):
+
+| Control | Range | What it does |
+| --- | --- | --- |
+| Priority rank (crew panel) | 0 to 16 | Ranks each of the 16 Player goals. `0` switches a goal off; `1` to `16` is a relative ranking (the max equals the number of assignable goals). This sets the goal's base priority. |
+| Cocaine Stockpile Cap (Buy Cocaine) | 0 to 5000 | Members stop buying once they hold this much. |
+| Cocaine Reserve (Sell Wholesale) | 0 to 5000 | Members sell wholesale only above this amount. |
+
+Only Buy Cocaine and Sell Wholesale have the extra amount sliders. Every other Player goal is controlled by its
+priority rank alone.
 
 ### Business and economy
 
-| Goal | Base | Type | Weight calculators | Player slider |
-| --- | --- | --- | --- | --- |
-| Sell Drugs | 0 | Player | `target_available` (addict seeking a dealer); `inventory_check` (hard gate, needs 50g+); `property_multiplier` (SectionHeat: fades above 70, near 0 at 100); `time_of_day` (night 1.5x) | - |
-| Sell Wholesale | 0 | Player | `target_available` (Distributor); `inventory_check` (sell above reserve); `proximity_threat` (police 200); `time_of_day` (night 1.2x) | Cocaine Reserve, sell above (0-5000, default 200) |
-| Buy Cocaine | 0 | Player | `target_available` (Trafficker); `inventory_check` (buy below cap); `proximity_threat` (police 200); `time_of_day` (night 1.3x) | Cocaine Stockpile Cap (0-5000, default 1200) |
-| Pick Up Product | 0 | Player | `target_available` (Lab with product) | - |
-| Stash Product | 0 | Player | `target_available` (Stash); `inventory_check` (only with 100g+ surplus); `time_of_day` (night 1.2x) | - |
-| Pick Up From Stash | 0 | Player | `target_available` (Stash with product); `inventory_check` (only if carrying under 50) | - |
-| Deposit Cash | 0 | Player | `target_available` (cash-deposit Stash); `property_multiplier` (needs ~$500+ on hand); `property_multiplier` (urgency rises to $20k); `time_of_day` (day 1.3x) | - |
-| Collect Cash From Stash | 0 | Player | `target_available` (Stash holding cash) | - |
-| Collect Debt | 0 | Player | `target_available` (collectible Debtor); `time_of_day` (night 1.3x) | - |
-| Launder Money | 0 | Player | `target_available` (Front); `property_multiplier` (Cash $2k-10k); `time_of_day` (day 1.4x, night 0.3x) | - |
-| Collect Protection | 0 | Player | `target_available` (Racket target); `proximity_threat` (police 250); `property_multiplier` (SectionHeat dampens, floor 0.25x); `time_of_day` (day 1.2x) | - |
-| Extort Shop | 0 | Player | `target_available` (Civilian shop); `proximity_threat` (police 200); `time_of_day` (day 1.3x) | - |
+All are **Player** goals (ranked 0 to 16 on the crew panel). Buy Cocaine and Sell Wholesale also have amount
+sliders, noted below.
+
+| Goal | Base | Weight calculators |
+| --- | --- | --- |
+| Sell Drugs | 0 | `target_available` (addict seeking a dealer); `inventory_check` (hard gate, needs 50g+); `property_multiplier` (SectionHeat: fades above 70, near 0 at 100); `time_of_day` (night 1.5x) |
+| Sell Wholesale | 0 | `target_available` (Distributor); `inventory_check` (sell above the Cocaine Reserve slider); `proximity_threat` (police 200); `time_of_day` (night 1.2x) |
+| Buy Cocaine | 0 | `target_available` (Trafficker); `inventory_check` (buy below the Cocaine Stockpile Cap slider); `proximity_threat` (police 200); `time_of_day` (night 1.3x) |
+| Pick Up Product | 0 | `target_available` (Lab with product) |
+| Stash Product | 0 | `target_available` (Stash); `inventory_check` (only with 100g+ surplus); `time_of_day` (night 1.2x) |
+| Pick Up From Stash | 0 | `target_available` (Stash with product); `inventory_check` (only if carrying under 50) |
+| Deposit Cash | 0 | `target_available` (cash-deposit Stash); `property_multiplier` (needs ~$500+ on hand); `property_multiplier` (urgency rises to $20k); `time_of_day` (day 1.3x) |
+| Collect Cash From Stash | 0 | `target_available` (Stash holding cash) |
+| Collect Debt | 0 | `target_available` (collectible Debtor); `time_of_day` (night 1.3x) |
+| Launder Money | 0 | `target_available` (Front); `property_multiplier` (Cash $2k-10k); `time_of_day` (day 1.4x, night 0.3x) |
+| Collect Protection | 0 | `target_available` (Racket target); `proximity_threat` (police 250); `property_multiplier` (SectionHeat dampens, floor 0.25x); `time_of_day` (day 1.2x) |
+| Extort Shop | 0 | `target_available` (Civilian shop); `proximity_threat` (police 200); `time_of_day` (day 1.3x) |
 
 ### Territory and risk management
 
@@ -128,8 +146,8 @@ These are mostly system goals that outrank anything the player assigns.
 | Surrender | 14 | System | - | Only with a cop actively arresting. |
 | Evade Arrest | 16 | System | `trait_check` (Fear > 60) | Only a fearful member runs. |
 | Resist Arrest | 18 | System | `trait_check` (Aggression > 70) | Only a hothead opens fire on police. |
-| Execute Mission | 0 | System | (set by the [Director](/systems/director)) | Carries out a Director mission. |
-| Green Light | 1 | System | `string_nonempty` (GreenLightTarget, 8x) | A player-issued kill order. |
+| Execute Mission | 0 | Mission | `string_nonempty` style activation when a mission is assigned | Assigned by the [Director](/systems/director) or a player-driven service. |
+| Green Light | 1 | Player order | `string_nonempty` (GreenLightTarget, 8x) | Fires when you issue a kill order on a target. |
 | Hunt the Rat | 1 | Internal / System | `string_nonempty` (RatHuntTarget, 9x) | Active once a suspect is fingered. |
 | Hunt the Badge | 1 | Internal / System | `string_nonempty` (VendettaCopTarget, 8x); `time_of_day` (night 1.4x) | A [Historian](/systems/historian)-seeded blood feud with a cop. |
 | Cold Kill | 3 | Internal | `time_of_day` (night 1.6x) | Quiet work under cover of darkness. |
