@@ -56,7 +56,8 @@ export default defineConfig({
           text: 'Overview',
           items: [
             { text: 'Systems Index', link: '/systems/' },
-            { text: 'Architecture', link: '/systems/architecture' }
+            { text: 'Architecture', link: '/systems/architecture' },
+            { text: 'Entities (the roster)', link: '/systems/entities' }
           ]
         },
         {

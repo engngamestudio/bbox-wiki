@@ -8,6 +8,7 @@ tuning knobs that drive them. It is reference-first: tables and formulas over pr
 | System | What it decides | Core formula lives in |
 | --- | --- | --- |
 | [Architecture](/systems/architecture) | How the layers fit together | high-level overview |
+| [Entities](/systems/entities) | Every pawn type, its purpose and goals | the roster |
 | [GOAP](/systems/goap) | Which goal a pawn pursues this tick | priority math |
 | [Atomic Goals](/systems/atomic-goals) | Why stories emerge instead of being scripted | design principle |
 | [Traits](/systems/traits) | Who a pawn is and what they unlock | threshold tables |

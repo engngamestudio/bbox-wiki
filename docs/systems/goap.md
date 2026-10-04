@@ -50,12 +50,19 @@ effectivePriority = basePriority  x  product(weight calculators)  x  situationMu
 
 ### Weight calculator types
 
-| Type | Reads | Typical use |
+| Type | Reads | Effect |
 | --- | --- | --- |
-| `property_multiplier` | A numeric property (Heat, Cash) | Scale a goal up as a value climbs. |
-| `inventory_check` | A resource amount (Cocaine) | Want to restock only when low. |
-| `proximity_threat` | Nearby hostiles | Raise evasion or combat goals when danger is close. |
-| `trait_check` | A trait value against a cutoff | Binary gate: keep a goal at `0` until a trait crosses a threshold. |
+| `target_available` | Whether a matching target entity exists (with optional filter) | Hard gate to `0` when there is nothing to act on (no addict seeking a dealer, no debtor to collect). |
+| `inventory_check` | A resource amount vs a threshold | Gate or scale by stock (`belowMultiplier` / `aboveMultiplier`). Buy when low, sell when high. |
+| `property_multiplier` | A numeric property over an input range | Map a value (Heat, Cash) to an output multiplier range along a curve. |
+| `proximity_threat` | Nearby tagged entities within a radius | Reduce priority per nearby threat (for example, back off deals with police close). |
+| `time_of_day` | Day or night | Separate `dayMultiplier` and `nightMultiplier`. Most crime leans toward night. |
+| `trait_check` | One or more trait conditions (op, value) | Binary gate: all conditions must pass or the goal stays at `0`. Used for [drama](/systems/drama). |
+| `trait_multiplier` | A trait value over an input range | Scale smoothly by a trait (fear raising the urge to hunker down). |
+| `string_nonempty` | Whether a string property is set | Active only when a target id is present (a Green Light order, a named rat). |
+
+Calculators stack by multiplication, so a goal can be gated by one (`target_available`), scaled by another
+(`property_multiplier` on heat), and shaped by time of day all at once.
 
 ### Player-adjustable priorities
 
@@ -66,6 +73,91 @@ weight, so a goal can be dialed down to near zero without ever becoming unreacha
 > [!NOTE]
 > Player goals set to `0` on the priority panel are switched off. Internal drama goals are hidden from the panel
 > so the player cannot accidentally disable them. See [Drama](/systems/drama).
+
+## Gang member goal reference
+
+The full goal set for a gang member: **38 goals**. This is the complete, current list with base priority, goal
+type, and every weight calculator that shapes it. For a per-entity overview of all other pawns, see
+[Entities](/systems/entities).
+
+**Goal type legend:**
+
+| Type | Meaning |
+| --- | --- |
+| Player | Assignable on the goal-priority panel. Base priority is usually `0`, so a calculator (often `target_available`) must switch it on before it competes. |
+| System | Always active and outranks player goals. Fires automatically when its conditions are met. |
+| Internal | Hidden from the player panel. Background behavior and [drama](/systems/drama). |
+
+Most player business goals start at base `0` on purpose: they stay dormant until there is something to act on, then
+scale with heat, cash, stock, and time of day.
+
+### Business and economy
+
+| Goal | Base | Type | Weight calculators | Player slider |
+| --- | --- | --- | --- | --- |
+| Sell Drugs | 0 | Player | `target_available` (addict seeking a dealer); `inventory_check` (hard gate, needs 50g+); `property_multiplier` (SectionHeat: fades above 70, near 0 at 100); `time_of_day` (night 1.5x) | - |
+| Sell Wholesale | 0 | Player | `target_available` (Distributor); `inventory_check` (sell above reserve); `proximity_threat` (police 200); `time_of_day` (night 1.2x) | Cocaine Reserve, sell above (0-5000, default 200) |
+| Buy Cocaine | 0 | Player | `target_available` (Trafficker); `inventory_check` (buy below cap); `proximity_threat` (police 200); `time_of_day` (night 1.3x) | Cocaine Stockpile Cap (0-5000, default 1200) |
+| Pick Up Product | 0 | Player | `target_available` (Lab with product) | - |
+| Stash Product | 0 | Player | `target_available` (Stash); `inventory_check` (only with 100g+ surplus); `time_of_day` (night 1.2x) | - |
+| Pick Up From Stash | 0 | Player | `target_available` (Stash with product); `inventory_check` (only if carrying under 50) | - |
+| Deposit Cash | 0 | Player | `target_available` (cash-deposit Stash); `property_multiplier` (needs ~$500+ on hand); `property_multiplier` (urgency rises to $20k); `time_of_day` (day 1.3x) | - |
+| Collect Cash From Stash | 0 | Player | `target_available` (Stash holding cash) | - |
+| Collect Debt | 0 | Player | `target_available` (collectible Debtor); `time_of_day` (night 1.3x) | - |
+| Launder Money | 0 | Player | `target_available` (Front); `property_multiplier` (Cash $2k-10k); `time_of_day` (day 1.4x, night 0.3x) | - |
+| Collect Protection | 0 | Player | `target_available` (Racket target); `proximity_threat` (police 250); `property_multiplier` (SectionHeat dampens, floor 0.25x); `time_of_day` (day 1.2x) | - |
+| Extort Shop | 0 | Player | `target_available` (Civilian shop); `proximity_threat` (police 200); `time_of_day` (day 1.3x) | - |
+
+### Territory and risk management
+
+| Goal | Base | Type | Weight calculators | Notes |
+| --- | --- | --- | --- | --- |
+| Guard Corner | 0 | Player | `property_multiplier` (SectionHeat 10-80 to 0-2x); `time_of_day` (night 1.4x) | More motivated as the block heats up. |
+| Lay Low | 0 | Player | `property_multiplier` (HeatLevel 4-10 to 0-3x) | Only activates at heat 5 and up. |
+| Hunker Down | 4 | Internal / System | `trait_multiplier` (Fear 25-80 to 0-2.5x); `trait_multiplier` (Confidence resists, high nerve ignores it) | A scared member wants off the street. |
+| Threaten Witness | 0 | Player | (fires via plan/handshake when a witness exists) | Silences a civilian who reported. |
+| Bribe Officer | 0 | Player | `target_available` (un-bribed corrupt officer); `property_multiplier` (HeatLevel 3-10 to 0-3x); `property_multiplier` (Cash $1k-10k); `time_of_day` (night 1.3x) | Needs ~$1,000 to be convincing. |
+
+### Combat, arrest, and orders
+
+These are mostly system goals that outrank anything the player assigns.
+
+| Goal | Base | Type | Weight calculators | Notes |
+| --- | --- | --- | --- | --- |
+| Fight | 12 | System | (driven by combat engagement scores) | See [Combat](/systems/combat). |
+| Surrender | 14 | System | - | Only with a cop actively arresting. |
+| Evade Arrest | 16 | System | `trait_check` (Fear > 60) | Only a fearful member runs. |
+| Resist Arrest | 18 | System | `trait_check` (Aggression > 70) | Only a hothead opens fire on police. |
+| Execute Mission | 0 | System | (set by the [Director](/systems/director)) | Carries out a Director mission. |
+| Green Light | 1 | System | `string_nonempty` (GreenLightTarget, 8x) | A player-issued kill order. |
+| Hunt the Rat | 1 | Internal / System | `string_nonempty` (RatHuntTarget, 9x) | Active once a suspect is fingered. |
+| Hunt the Badge | 1 | Internal / System | `string_nonempty` (VendettaCopTarget, 8x); `time_of_day` (night 1.4x) | A [Historian](/systems/historian)-seeded blood feud with a cop. |
+| Cold Kill | 3 | Internal | `time_of_day` (night 1.6x) | Quiet work under cover of darkness. |
+
+### Drama and breakdown
+
+All [trait-gated](/systems/traits#trait-gated-goals) and [internal](/systems/drama). Base `0` unless noted; the
+`trait_check` must pass before the goal competes at all.
+
+| Goal | Base | Unlocks when (`trait_check`) | Also needs |
+| --- | --- | --- | --- |
+| Defect | 10 | Loyalty < 20 | - |
+| Steal from Crew | 0 | Greed > 80 and Loyalty < 40 | A stash to steal from |
+| Rat to Police | 0 | Loyalty < 15 and Fear > 70 | A cop to rat to |
+| Refuse Orders | 0 | Resentment > 60 and Loyalty < 30 | - |
+| Mental Break, Rage | 0 | Aggression > 70 and Stress > 80 | - |
+| Intimidate Random | 0 | Aggression > 60 and Stress > 50 | Someone to intimidate |
+| Kill Contact | 0 | Aggression > 85 and MoralFlexibility > 80 | - |
+| Substance Binge | 0 | Cocaine craving > 75 and Stress > 60 | - |
+| Catatonic Breakdown | 0 | Depression > 80 and Stress > 70 | - |
+| End It All | 0 | Depression > 95 and Hopelessness > 90 and Stress > 85 | - |
+| Inspire Crew | 0 | Confidence > 80 and Natural leadership > 60 | - |
+
+### Idle
+
+| Goal | Base | Type | Notes |
+| --- | --- | --- | --- |
+| Chillin' on Turf (Wander) | 0 | Internal | The floor behavior when nothing else is reachable. |
 
 ## The layering rule
 
