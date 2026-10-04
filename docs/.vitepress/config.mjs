@@ -79,6 +79,13 @@ export default defineConfig({
           ]
         },
         {
+          text: 'Intelligence & Law',
+          items: [
+            { text: 'Buying Information', link: '/systems/intelligence' },
+            { text: 'Investigations, Cases & RICO', link: '/systems/investigations' }
+          ]
+        },
+        {
           text: 'The Business',
           items: [
             { text: 'Economy & Money Model', link: '/systems/economy' },

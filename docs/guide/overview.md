@@ -18,6 +18,7 @@ This page is the shortest complete description of the game. Each row links to th
 | **Generated past** | The Historian writes each pawn a backstory that seeds traits and can plant feuds, debts, and secrets. | [Historian](/systems/historian) |
 | **A living threat** | The Director watches your empire and fires events (patrols, raids, rival attacks) when pressure builds. | [Director](/systems/director) |
 | **Consequence economy** | Every order leaves a trace. Heat rises per city block and pulls police toward you. | [Heat](/systems/heat) |
+| **Information is the edge** | You cannot control your crew, so you pay to know them. Hire sources, buy dossiers, and stay ahead of the law's case on you. | [Intelligence](/systems/intelligence), [Investigations & RICO](/systems/investigations) |
 | **Emergent drama** | Betrayal, defection, breakdowns, and contagion are simulated, not scripted. | [Drama](/systems/drama), [Betrayal](/systems/betrayal) |
 
 ## What you actually do
