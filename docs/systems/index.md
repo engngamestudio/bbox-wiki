@@ -20,6 +20,8 @@ tuning knobs that drive them. It is reference-first: tables and formulas over pr
 | [Combat](/systems/combat) | Fight, flee, arrest, or surrender | outcome scoring |
 | [Intelligence](/systems/intelligence) | Buying info: sources and dossiers | prices and reveals |
 | [Investigations & RICO](/systems/investigations) | Cases, warrants, federal prosecution | evidence and exposure |
+| [Map](/systems/map) | Real cities, layers, navigation, prices | OSM + real price data |
+| [Real Estate](/systems/real-estate) | Stashes, labs, fronts, acquisition | costs, income, heat |
 | [Economy](/systems/economy) | Money flow and drug margins | money model + laundering split |
 | [Betrayal](/systems/betrayal) | Defection, contagion, recruit-back | loyalty-band tuning |
 | [Territory](/systems/territory) | Turf control and pressure | section ownership |

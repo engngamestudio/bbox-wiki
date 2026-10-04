@@ -87,11 +87,18 @@ export default defineConfig({
           ]
         },
         {
+          text: 'The World',
+          items: [
+            { text: 'Map, Layers & Navigation', link: '/systems/map' },
+            { text: 'Territory', link: '/systems/territory' }
+          ]
+        },
+        {
           text: 'The Business',
           items: [
             { text: 'Economy & Money Model', link: '/systems/economy' },
-            { text: 'Betrayal & Defection', link: '/systems/betrayal' },
-            { text: 'Territory', link: '/systems/territory' }
+            { text: 'Real Estate & Assets', link: '/systems/real-estate' },
+            { text: 'Betrayal & Defection', link: '/systems/betrayal' }
           ]
         }
       ],

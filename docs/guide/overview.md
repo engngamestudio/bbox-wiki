@@ -20,6 +20,7 @@ This page is the shortest complete description of the game. Each row links to th
 | **Consequence economy** | Every order leaves a trace. Heat rises per city block and pulls police toward you. | [Heat](/systems/heat) |
 | **Information is the edge** | You cannot control your crew, so you pay to know them. Hire sources, buy dossiers, and stay ahead of the law's case on you. | [Intelligence](/systems/intelligence), [Investigations & RICO](/systems/investigations) |
 | **Emergent drama** | Betrayal, defection, breakdowns, and contagion are simulated, not scripted. | [Drama](/systems/drama), [Betrayal](/systems/betrayal) |
+| **Real ground** | Real US cities from real street and building data, with real-estate prices anchored to real home values. | [Map](/systems/map), [Real Estate](/systems/real-estate) |
 
 ## What you actually do
 
