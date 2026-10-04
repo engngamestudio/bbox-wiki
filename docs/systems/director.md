@@ -112,6 +112,54 @@ Whole classes of events can be switched off in config:
 | `distributors` | deploy_distributors |
 | `debtors` | deploy_debtors |
 
+## Campaign progression: honeymoon to kingpin
+
+The Director does not hit a new player at full force. It follows a **phase schedule** keyed to the in-game day. Early
+on you are invisible; over time the city, then the police, then the feds all come online. This is the ramp from
+small-time to kingpin.
+
+| Phase | Days | What is active | The feel |
+| --- | --- | --- | --- |
+| **Honeymoon** | 1 to 5 | Nothing. No rivals, no police, no feds. | A true grace period to get started and learn. |
+| **Rising Heat** | 6 to 15 | Rivals start testing you; local police and SWAT come online. No FBI yet. | The city notices you. |
+| **Open Market** | 16 to 30 | Rivals and local forces at full cadence; heavy events still cooled down to avoid a spike. FBI still held back. | Training wheels off. |
+| **End-Game Warfare** | 31+ | Everything. Federal task force deploys alongside full rivals and police. All cooldowns at base. | Gloves off. The Director has full autonomy. |
+
+Each phase sets [feature flags](#feature-flags) (which event classes are allowed) and can tighten
+[per-type cooldowns](#the-knobs) for that window, then restore them on transition. Phases are evaluated in order, and
+the schedule is a single data file; removing it disables phase gating entirely and lets the Director run unphased
+from day one.
+
+## Adaptive difficulty
+
+On top of the fixed phase ramp, the Director can **adapt to how you are doing**. An adaptation level rises while your
+crew survives and falls when you take losses. The tougher you look, the tougher the crews it sends.
+
+| Knob | Default | Effect |
+| --- | --- | --- |
+| `enabled` | off | Whether adaptation runs at all |
+| `gainOnSurvival` | 0.05 | How fast the level rises while you are healthy |
+| `decayOnLoss` | 0.15 | How fast it falls when you take losses (falls faster than it rises) |
+| `healthMin` / `healthMax` | 60 / 100 | The health range freshly spawned rivals are scaled into as the level climbs |
+
+With adaptation on, a player who steamrolls early fights steadily tougher rivals; a player who is bleeding gets a
+lighter touch. It is a rubber band, not a fixed slope.
+
+## Tuning the difficulty
+
+The whole pressure curve is data, so you (or a modder, or a playtester in a tuning session) can reshape it:
+
+| Lever | Where | What it changes |
+| --- | --- | --- |
+| Threat weights and threshold | Director config block | How fast pressure builds and how high it must go to fire |
+| Phase schedule | Phase schedule file | When each phase starts and what it unlocks |
+| Adaptation | Director config block | Whether and how hard the Director rubber-bands to your performance |
+| Feature flags | Config features block | Switch whole event classes on or off |
+| Presets | Saved preset files | Snapshot a whole tuned config and share it (see [Director Tools](/systems/director-tools)) |
+
+Full key list is in [Economy Config](/modding/economy-config#the-director). The playtester workflow for saving,
+sharing, and debug-firing is on the [Director Tools](/systems/director-tools) page.
+
 ## Squad formation
 
 When an event fires:

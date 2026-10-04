@@ -15,7 +15,8 @@ tuning knobs that drive them. It is reference-first: tables and formulas over pr
 | [Trait Catalog](/systems/trait-catalog) | All 552 traits with descriptions | full reference |
 | [Historian](/systems/historian) | A pawn's starting past and seeded traits | worldgen |
 | [Drama](/systems/drama) | Betrayal, defection, breakdowns | trait thresholds + events |
-| [Director](/systems/director) | When pressure fires an event | threat score |
+| [Director](/systems/director) | When pressure fires an event, honeymoon to kingpin | threat score + phases |
+| [Director Tools](/systems/director-tools) | Presets, export/import, debug firing | tuning workflow |
 | [Heat](/systems/heat) | Crime pressure per block, police pull | heat gain and decay |
 | [Combat](/systems/combat) | Fight, flee, arrest, or surrender | outcome scoring |
 | [Intelligence](/systems/intelligence) | Buying info: sources and dossiers | prices and reveals |

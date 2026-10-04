@@ -75,6 +75,7 @@ export default defineConfig({
           text: 'Pressure & Pacing',
           items: [
             { text: 'The Director', link: '/systems/director' },
+            { text: 'Director Tools (Tuning & Debug)', link: '/systems/director-tools' },
             { text: 'Heat & Consequences', link: '/systems/heat' },
             { text: 'Combat', link: '/systems/combat' }
           ]
