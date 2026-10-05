@@ -49,13 +49,16 @@ testable. See [GOAP authoring](/modding/goap) for the data format.
 
 State changes do more than complete a goal. Over time they feed back into who a pawn is, which unlocks new goals:
 
-| Repeated state change | Trait it feeds | What the trait unlocks |
+| Repeated behavior | Trait it moves | What crossing a threshold does |
 | --- | --- | --- |
-| Gaining cash | Wealth | Access to higher-value opportunities |
-| Accumulating heat | Heat exposure | Police escalate sooner |
-| Taking bribes (on a cop) | Corruption | The cop starts soliciting bribes on their own |
-| Collecting debts | Enforcer reputation | Debtors fold faster |
-| Intimidating witnesses | Violent reputation | New, more aggressive options appear |
+| Selling drugs | Greed up, Empathy down | High Greed with low Loyalty unlocks stealing from the crew and defection |
+| Taking bribes (an officer) | Corruption and bribe willingness up | Past the line, the officer starts soliciting bribes on their own |
+| Fighting | Aggression and Stress up | High aggression with high stress can trigger a rage breakdown |
+| Collecting debts, extorting | Ruthlessness up | Extreme ruthlessness unlocks the most violent actions |
+| Taking losses and pressure | Stress up | At peak stress, a breaking point fires |
+
+These chains are the real wired ones; see the [threshold table](/systems/traits#threshold-events) and
+[trait-gated goals](/systems/traits#trait-gated-goals) for the exact cutoffs.
 
 Because traits change slowly, the world feels like it is living rather than flipping switches. A corrupt cop you
 cultivated over many in-game days is worth more than any single scripted event.
@@ -66,14 +69,15 @@ A sequence nobody scripted, assembled from atoms reacting to shared state:
 
 | Step | What happens |
 | --- | --- |
-| 1 | A member deals repeatedly; their dealer reputation climbs. |
-| 2 | High reputation lowers the threshold at which nearby civilians flee. |
-| 3 | A fleeing civilian reports what they saw. |
-| 4 | The report makes two goals reachable at once: the member wants to silence the witness, the police want to investigate. |
-| 5 | Whoever wins the race writes new state, which shifts more traits, which opens still more goals. |
+| 1 | A member deals on a corner. Each sale raises the section's [heat](/systems/heat) and nudges their Greed. |
+| 2 | A civilian nearby becomes a witness to the deal. |
+| 3 | The witness can feed a police [investigation](/systems/investigations) on that ground. |
+| 4 | Two goals become reachable at once: the member's Threaten Witness (silence them) and the police case. |
+| 5 | Whoever acts first writes new state (witness silenced, or evidence climbing toward a warrant), which shifts the situation further. |
 
-The member's dealing habit made them notorious; their notoriety created a witness; the witness opened both a
-conflict goal and a police goal. No arc authored that. See more examples in [Drama](/systems/drama).
+Nobody scripted that. The deal raised heat and created a witness; the witness opened both a conflict goal and a
+police case. See the real trigger details in [Heat](/systems/heat) and [Investigations](/systems/investigations),
+and more trait-driven turns in [Drama](/systems/drama).
 
 ## The player's role
 
