@@ -1,0 +1,45 @@
+# BBox: Kingpin Wiki
+
+> Official documentation for BBox: Kingpin, a crime-empire management simulation where an autonomous
+> crew runs on a 500+ trait personality system, a storyteller threat Director, real-city maps, and a
+> deep data-driven modding layer. This wiki is the living source of truth for the game's systems,
+> formulas, and modding API. Specific numbers are current defaults and change often; the formulas and
+> mechanisms are the stable reference.
+
+## Getting Started
+- [Overview](https://engngamestudio.github.io/bbox-wiki/guide/overview): the whole game in one page.
+- [Core Loop](https://engngamestudio.github.io/bbox-wiki/guide/core-loop): how every system connects.
+- [Glossary](https://engngamestudio.github.io/bbox-wiki/guide/glossary): key terms.
+
+## Game Systems
+- [Systems Index](https://engngamestudio.github.io/bbox-wiki/systems/): map of all systems.
+- [GOAP: How Pawns Decide](https://engngamestudio.github.io/bbox-wiki/systems/goap): per-pawn goal planning and the full gang-member goal reference.
+- [Emergent Design: Atomic Goals](https://engngamestudio.github.io/bbox-wiki/systems/atomic-goals): why stories emerge.
+- [Crew, Traits & Loyalty](https://engngamestudio.github.io/bbox-wiki/systems/traits): the trait system.
+- [Full Trait Catalog](https://engngamestudio.github.io/bbox-wiki/systems/trait-catalog): all 552 traits.
+- [The Historian](https://engngamestudio.github.io/bbox-wiki/systems/historian): generated backstories.
+- [Drama & Emergent Events](https://engngamestudio.github.io/bbox-wiki/systems/drama): betrayal and breakdowns.
+- [The Director](https://engngamestudio.github.io/bbox-wiki/systems/director): threat score, events, difficulty, honeymoon-to-kingpin progression.
+- [Heat & Consequences](https://engngamestudio.github.io/bbox-wiki/systems/heat): per-section crime pressure.
+- [Combat](https://engngamestudio.github.io/bbox-wiki/systems/combat): fight, flee, arrest, surrender.
+- [Intelligence: Buying Information](https://engngamestudio.github.io/bbox-wiki/systems/intelligence): sources and dossiers.
+- [Investigations, Cases & RICO](https://engngamestudio.github.io/bbox-wiki/systems/investigations): the law's case against you.
+- [Map, Layers & Navigation](https://engngamestudio.github.io/bbox-wiki/systems/map): real cities, real prices.
+- [Real Estate & Assets](https://engngamestudio.github.io/bbox-wiki/systems/real-estate): stashes, labs, fronts.
+- [Economy & Money Model](https://engngamestudio.github.io/bbox-wiki/systems/economy): clean/dirty cash, laundering, drug margins.
+- [Betrayal & Defection](https://engngamestudio.github.io/bbox-wiki/systems/betrayal): the signature drama.
+- [Territory](https://engngamestudio.github.io/bbox-wiki/systems/territory): turf control.
+- [Entities](https://engngamestudio.github.io/bbox-wiki/systems/entities): every pawn type and its goals.
+
+## Modding
+- [Modding Overview](https://engngamestudio.github.io/bbox-wiki/modding/): tiers and what you get for free.
+- [Quickstart](https://engngamestudio.github.io/bbox-wiki/modding/quickstart): a mod in 15 minutes.
+- [Mod Structure & mod.json](https://engngamestudio.github.io/bbox-wiki/modding/mod-structure).
+- [GOAP: Goals & Actions](https://engngamestudio.github.io/bbox-wiki/modding/goap).
+- [Entities & Identities](https://engngamestudio.github.io/bbox-wiki/modding/entities).
+- [Economy Config & Adding Content](https://engngamestudio.github.io/bbox-wiki/modding/economy-config).
+- [Services & C# API](https://engngamestudio.github.io/bbox-wiki/modding/services-api).
+- [Asset Studio](https://engngamestudio.github.io/bbox-wiki/modding/asset-studio): portraits, weapons, audio.
+
+## Downloads
+- [Downloads & Starter Kits](https://engngamestudio.github.io/bbox-wiki/downloads/).

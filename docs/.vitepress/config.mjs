@@ -15,18 +15,34 @@ export default defineConfig({
   cleanUrls: true,
   ignoreDeadLinks: true,
 
+  // Emits /bbox-wiki/sitemap.xml at build time so search engines and AI crawlers
+  // can discover every page.
+  sitemap: {
+    hostname: 'https://engngamestudio.github.io/bbox-wiki/'
+  },
+
   head: [
     ['meta', { name: 'theme-color', content: '#7c1f2b' }],
+    ['link', { rel: 'icon', href: '/bbox-wiki/favicon.ico' }],
+
+    // Open Graph (Facebook, Discord, link unfurls)
     ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: 'BBox: Kingpin Wiki' }],
     ['meta', { property: 'og:title', content: 'BBox: Kingpin Wiki' }],
-    [
-      'meta',
-      {
-        property: 'og:description',
-        content:
-          'Game systems, formulas, and the modding API for BBox: Kingpin.'
-      }
-    ]
+    ['meta', { property: 'og:description', content: 'Game systems, formulas, and the modding API for BBox: Kingpin, a crime-empire management simulation.' }],
+    ['meta', { property: 'og:url', content: 'https://engngamestudio.github.io/bbox-wiki/' }],
+    // Default share image. Per-page pages can override og:image via their own frontmatter head.
+    ['meta', { property: 'og:image', content: 'https://engngamestudio.github.io/bbox-wiki/og-default.png' }],
+
+    // Twitter / X card. X reads these when a page URL is shared, so a Share-on-X
+    // button that posts the page URL will render this card image automatically.
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'BBox: Kingpin Wiki' }],
+    ['meta', { name: 'twitter:description', content: 'Game systems, formulas, and the modding API for BBox: Kingpin.' }],
+    ['meta', { name: 'twitter:image', content: 'https://engngamestudio.github.io/bbox-wiki/og-default.png' }],
+
+    // Crawling hints
+    ['meta', { name: 'robots', content: 'index, follow, max-image-preview:large' }]
   ],
 
   themeConfig: {
