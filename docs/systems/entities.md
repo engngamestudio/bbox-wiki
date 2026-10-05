@@ -4,6 +4,12 @@ Every pawn in the world is an **entity type** with its own purpose and its own g
 what each type is for, which [faction](/systems/territory#factions-and-ownership) side it sits on, and the goals it
 can pursue with their base priorities.
 
+![The new-game crew preview, with a tab for every entity type in the game.](/images/entities-crew-preview.png)
+
+*The new-game preview lists every entity type across the top tabs. Each card shows a pawn's live state (control,
+identity, resources, inventory, territory), so you can see exactly what a Gang Member, Drug Trafficker, Addict, and
+the rest start with.*
+
 **Goal type legend:**
 
 | Type | Meaning |
