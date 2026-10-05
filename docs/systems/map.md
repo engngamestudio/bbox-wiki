@@ -49,6 +49,11 @@ You start by selecting a **bounding box**: a rectangle over a real US city. The 
 box and drops you in. The base game ships real cities to start in, including Miami, New York, Boston, Tampa, and Los
 Angeles.
 
+![Select Territory: drawing a bounding box over a real US map at the start of the game.](/images/map-select-territory.png)
+
+*The Select Territory screen at game start. Drag a rectangle anywhere in the United States; the readout shows the box
+size and its real latitude and longitude, and "Use This Territory" builds the map from that exact ground.*
+
 | You pick | You get |
 | --- | --- |
 | A city and a neighborhood rectangle | A playable sector built from that exact ground |

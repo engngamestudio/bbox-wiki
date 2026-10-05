@@ -37,6 +37,13 @@ pick the winner          = highest effective priority, ties broken by lowest pla
 
 ## Priority math
 
+![The Crew Behavior panel: per-goal priority sliders, the priority factors behind a goal, and the live decision ranking.](/images/goap-crew-behavior.png)
+
+*The Crew Behavior panel is this whole page made visible. Left: each goal with its player priority slider (0 to 16).
+Middle: the priority factors (weight calculators) behind the selected goal, including the Section Heat curve and the
+day/night multiplier. Right: the live Decision Ranking, the effective-priority order the pawn is actually choosing
+from.*
+
 A goal's **effective priority** decides which goal wins. It starts from a base priority and is adjusted by
 **weight calculators** that read the pawn's current state:
 
