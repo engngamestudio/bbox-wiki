@@ -145,6 +145,56 @@ Betrayal tuning lives in its own config file loaded with the mod:
 | Burn fee | What is lost to washing | [Economy](/systems/economy#laundering) |
 | Heat exposure | Heat added per launder | [Economy](/systems/economy#laundering) |
 
+## Adding content (new drugs, labs, weapons)
+
+New product types, production buildings, and weapons are **data, not new systems**. Most additions are a field plus a
+few config entries, which is why the game can grow its inventory without an engine change.
+
+### A new lab (for example, a meth lab)
+
+The game already ships a Drug Lab and a small Crack Lab as building purposes. A meth lab is just another purpose
+entry with its own batch size, cost, and risk:
+
+```json
+{
+  "purposeId": "meth_lab",
+  "displayName": "Meth Lab",
+  "symbol": "🧪",
+  "description": "Production facility. Cooks a batch of product each cycle, runs hot.",
+  "allowedBuildingTags": ["industrial", "abandoned"],
+  "weeklyUpkeep": 900,
+  "productionBatchAmount": 120,
+  "productionBatchIntervalTicks": 240,
+  "heatExposure": 1.0,
+  "evidencePerWeek": 18,
+  "setupCost": 28000,
+  "marketValueModifier": -0.006
+}
+```
+
+Drop that into the purposes data and it appears as a conversion option. No code. See
+[Real Estate & Assets](/systems/real-estate) for what every field means.
+
+### A new drug
+
+A new product type is a handful of data edits, not a rewrite:
+
+| Step | What you add |
+| --- | --- |
+| 1 | A product field on the entities that carry it (the same way Cocaine is a property) |
+| 2 | Pricing entries (buy, retail, wholesale amounts and prices) in the economy config |
+| 3 | A way to get it: a lab purpose that produces it, or a supplier that sells it |
+| 4 | Optionally, buy and sell goals so crew trade it, mirroring the cocaine goals |
+
+The systems that move money, raise [heat](/systems/heat), and build [cases](/systems/investigations) do not care
+which product it is, so a new drug rides all of them for free.
+
+### A new weapon
+
+Weapons are data and art. A new one is a sprite plus an entry, and it slots into the existing combat scoring through
+its weapon-quality value. See [Asset Studio](/modding/asset-studio) for importing the art and
+[Combat](/systems/combat#what-goes-into-the-score) for how weapon quality factors in.
+
 ## Tuning workflow
 
 | Step | Action |

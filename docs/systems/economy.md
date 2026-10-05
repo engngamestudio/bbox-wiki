@@ -59,6 +59,11 @@ money from dirty to clean, and off people into fronts, is risk management.
 
 The core earner. Product flows from a supplier down to the street, and the margin depends on how you sell it.
 
+> [!NOTE]
+> The trade currently centers on cocaine, cut to crack for retail. **Product types are data, not hard-wired.** Adding
+> a new drug is a new field plus its prices and a place to make or buy it, not a new system. See the worked example
+> in [adding content](/modding/economy-config#adding-content-new-drugs-labs-weapons).
+
 ### Supply chain
 
 | Tier | Transaction | Amount | Price |

@@ -2,7 +2,11 @@
 
 There is no manual shooting in BBox: Kingpin. When two hostiles meet, the simulation scores the situation for each
 of them and they decide for themselves whether to **fight, flee, surrender, or make an arrest**. Your job is the
-setup: who is there, how well armed, on whose turf, outnumbering whom. The AI plays out the fight.
+setup: who you send, on whose turf it happens, and who outnumbers whom. The AI plays out the fight.
+
+> [!NOTE]
+> You do not hand-pick a pawn's weapon yet. A pawn fights with what it carries, and weapon quality is one factor in
+> the scoring below. Player-controlled loadout is a planned extension, not a current feature.
 
 ## Who is hostile
 

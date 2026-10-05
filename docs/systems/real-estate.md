@@ -45,6 +45,11 @@ There are two families of purpose: **criminal infrastructure** (capacity and pro
 | Crack Lab (Small) | Makeshift residential production, ~20 per cycle. Neighbors notice. | residential | $10,000 | $600 | 1.4 | 20 |
 | Kingpin House | Your home base. Stores cash, drugs, and weapons. Cannot be sold. | residential, abandoned, gang | $0 | $0 | 0.1 | 1 |
 
+> [!NOTE]
+> Lab types are **data, not hard-wired systems**. The game already ships two (a cocaine Drug Lab and a small Crack
+> Lab); another one, say a **meth lab**, is just a new purpose entry with its own batch size, setup cost, and heat.
+> See the worked example in [adding content](/modding/economy-config#adding-content-new-drugs-labs-weapons).
+
 ### Legitimate fronts
 
 Fronts earn **clean income**, **launder** dirty cash, appreciate in value, and run cold. Their catch is the federal
