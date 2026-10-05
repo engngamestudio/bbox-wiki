@@ -45,7 +45,7 @@ the same shared state.
 Keeping actions to roughly three steps (approach, do, complete) is what keeps goals composable and independently
 testable. See [GOAP authoring](/modding/goap) for the data format.
 
-## How state becomes trait becomes behavior
+## From state to trait to behavior
 
 State changes do more than complete a goal. Over time they feed back into who a pawn is, which unlocks new goals:
 
