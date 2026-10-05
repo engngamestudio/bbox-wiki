@@ -9,6 +9,11 @@ pressure.
 > section, and a **Crime Rate** layer that shades the same values as a color heatmap with a legend. They are two
 > views of the same number, not two different metrics. Everything on this page is that one value.
 
+![The heat overlay shading city sections by how hot they are.](/images/heat-overlay.png)
+
+*The heat overlay colors each section by its current heat, so you can read at a glance where police pressure is
+building and route work to cooler blocks.*
+
 ## The model
 
 | Property | Value |

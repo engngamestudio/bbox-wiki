@@ -4,6 +4,11 @@ Property is how a street operation becomes an empire. Buildings are your **cover
 **production**, and your **laundromat**. This page lists every asset type, what it does, what it costs, and how to
 use it.
 
+![A property panel: buying a building and assigning it a purpose.](/images/real-estate-property-panel.png)
+
+*The property panel. Acquire a building, then convert it to a stash, lab, safe house, or legitimate front, each with
+its own costs, income, heat, and evidence.*
+
 Owning a property is two steps:
 
 1. **Acquire** a building (buy it, or take it). This gets you the shell.

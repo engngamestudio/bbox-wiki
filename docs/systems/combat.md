@@ -8,6 +8,11 @@ setup: who you send, on whose turf it happens, and who outnumbers whom. The AI p
 > You do not hand-pick a pawn's weapon yet. A pawn fights with what it carries, and weapon quality is one factor in
 > the scoring below. Player-controlled loadout is a planned extension, not a current feature.
 
+![A fight playing out on the map between hostile crews.](/images/combat-engagement.png)
+
+*Combat resolves on its own: when hostiles meet, each one scores fight, flee, surrender, or arrest and acts. You set
+up who is there and where; the AI plays it out.*
+
 ## Who is hostile
 
 Hostility is **faction-based**. Each faction declares which other factions it is hostile to. Two pawns are enemies

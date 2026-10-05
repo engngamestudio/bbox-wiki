@@ -4,6 +4,11 @@ You cannot read a crew member's mind or flip their loyalty. The only edge you ge
 information costs money. This is the system behind the game's core promise: *you can't control your people, you can
 only pay to know them.*
 
+![A crew member's dossier: the files you can buy and what they reveal.](/images/intelligence-dossier.png)
+
+*A subject's dossier. You hire a source, then buy files on a specific person to reveal their record, profile, and
+secrets before they cost you.*
+
 Intelligence has **two layers**. Understanding the seam is the whole thing:
 
 | Layer | What it is | You pay | Analogy |

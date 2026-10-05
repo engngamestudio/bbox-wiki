@@ -4,6 +4,11 @@ Money in BBox: Kingpin is not one number. It is **dirty or clean**, and it is he
 this model right is the difference between a growing empire and a seized one. This page is the authoritative
 reference for where cash lives and how it moves.
 
+![The money readout: dirty cash, clean cash, and crew holdings.](/images/economy-money-model.png)
+
+*Money lives in separate pots: your dirty cash, your laundered clean cash, and cash fronted to crew. Laundering moves
+dirty to clean; the pots below spell out who holds what.*
+
 ## The three pots of money
 
 | Pot | Whose | State | Notes |
