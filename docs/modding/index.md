@@ -1,5 +1,11 @@
 # Modding Overview
 
+> [!WARNING]
+> **Modding is evolving fast.** This section documents the **very basics available today**. More of the game is being
+> exposed as a proper, stable modding API with every update: more hooks, more data, more of the systems opened up.
+> Expect **full mod support at the Early Access release.** Treat these pages as a moving snapshot, not a final
+> contract, and check back often.
+
 BBox: Kingpin is built to be modded. Most content is **flat JSON** with automatic data binding and hot reload, so a
 basic mod takes minutes and needs no code. Deeper systems open up in C# when you want them.
 
