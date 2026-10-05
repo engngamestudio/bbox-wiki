@@ -1,0 +1,48 @@
+{
+  "_comment": "Canonical map of in-game topics to wiki URLs. The game's 'i' / info icons use this: open baseUrl + topics[key]. Keys are stable contracts; the target paths can be re-pointed here without changing game code. Served at https://engngamestudio.github.io/bbox-wiki/wiki-links.json so the game can bundle a copy or fetch the latest.",
+  "baseUrl": "https://engngamestudio.github.io/bbox-wiki/",
+  "version": 1,
+  "topics": {
+    "overview": "guide/overview",
+    "core_loop": "guide/core-loop",
+    "glossary": "guide/glossary",
+
+    "goap": "systems/goap",
+    "goap_priority": "systems/goap#priority-math",
+    "goal_reference": "systems/goap#gang-member-goal-reference",
+    "atomic_goals": "systems/atomic-goals",
+
+    "traits": "systems/traits",
+    "trait_thresholds": "systems/traits#threshold-events",
+    "trait_catalog": "systems/trait-catalog",
+    "historian": "systems/historian",
+    "drama": "systems/drama",
+
+    "director": "systems/director",
+    "director_progression": "systems/director#campaign-progression-honeymoon-to-kingpin",
+    "director_difficulty": "systems/director#adaptive-difficulty",
+    "director_tools": "systems/director-tools",
+
+    "heat": "systems/heat",
+    "crime_rate": "systems/heat",
+    "combat": "systems/combat",
+
+    "intelligence": "systems/intelligence",
+    "dossier": "systems/intelligence#layer-2-files-what-you-pay-for",
+    "sources": "systems/intelligence#layer-1-sources-who-you-pay",
+    "investigations": "systems/investigations",
+    "rico": "systems/investigations#rico-the-federal-case",
+
+    "map": "systems/map",
+    "territory": "systems/territory",
+    "real_estate": "systems/real-estate",
+    "economy": "systems/economy",
+    "laundering": "systems/economy#laundering",
+    "money_model": "systems/economy#the-three-pots-of-money",
+    "betrayal": "systems/betrayal",
+    "entities": "systems/entities",
+
+    "modding": "modding/",
+    "modding_quickstart": "modding/quickstart"
+  }
+}
