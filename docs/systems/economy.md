@@ -6,12 +6,12 @@ reference for where cash lives and how it moves.
 
 ## The three pots of money
 
-| Pot | Whose | State | Can the player spend it? |
+| Pot | Whose | State | Notes |
 | --- | --- | --- | --- |
-| **Player dirty cash** | Player | Dirty | No, must be laundered first |
-| **Player clean cash** | Player | Clean | Yes, freely |
-| **Member fronted cash** | A crew member, given by you | Dirty | Via stash / collect / launder orders |
-| **Member wallet** | A crew member, their own | Theirs | Never, the player cannot touch it |
+| **Player dirty cash** | Player | Dirty | Spendable on the business (property, loans, operations), but it is proceeds of crime. Laundering turns it into clean cash. |
+| **Player clean cash** | Player | Clean | Fully legitimate money you can use freely and safely. |
+| **Member fronted cash** | A crew member, given by you | Dirty | Dirty cash you handed a member; recovered via stash / collect / launder orders. |
+| **Member wallet** | A crew member, their own | Theirs | The member's personal money. The player can never touch it. |
 
 > [!IMPORTANT]
 > A crew member's **wallet** is their personal money. You never take from it. When you "collect" from a member you
