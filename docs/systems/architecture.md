@@ -34,14 +34,21 @@ mutating the old one. The practical consequences:
 
 ## Threading model (light)
 
-The game is **mostly single-threaded by design**, with one deliberate exception: pawn AI planning can run off
-the main thread so a large crowd of agents does not stall the frame. The rule is simple:
+The game runs on **two main threads**:
 
-- **Planning** (deciding what to do) may happen on a worker.
-- **State changes** are always applied back on the main thread, in order, against the immutable store.
+| Thread | Rate | Owns |
+| --- | --- | --- |
+| Main (render) thread | Frame rate (about 60 fps) | Rendering, UI, and reacting to state changes for display |
+| AI thread | Lower rate (a few times a second) | The pawn planning and behavior loop for the whole crowd |
 
-This keeps the determinism and single-source-of-truth guarantees above while letting the AI scale. Modders do
-not need to write thread-safe code for normal content work; the framework marshals results back for you.
+Running the AI loop on its own thread, at a lower rate than rendering, is what lets a large crowd of agents think
+without stalling the frame. The two threads share the one [immutable store](#state-one-immutable-store) as their
+common source of truth, and hand work across through thread-safe channels: anything the UI must react to is marshaled
+to the main thread so it never races the simulation.
+
+For modders: your goals, actions, and behaviors run on the AI thread and read and write state through the provided
+state API, so for normal content work you are not managing locks yourself. The one rule to remember is that touching
+the UI must happen on the main thread. See [Services & C# API](/modding/services-api#threading).
 
 ## Data-driven by default
 

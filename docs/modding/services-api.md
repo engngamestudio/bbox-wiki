@@ -97,9 +97,13 @@ next run instantly.
 
 ## Threading
 
-You do not need to write thread-safe code for normal content work. Planning may run off the main thread, but your
-behaviors and services apply **state changes on the main thread**, in order. Read, decide, and call
-`ModAPI.SetProperty`; the framework handles the rest. See the [architecture note](/systems/architecture#threading-model-light).
+Your goals, actions, and behaviors run on the **AI thread**, not the render thread. They read and write state through
+the state API (`ModAPI.GetEntity`, `ModAPI.SetProperty`) against the shared [immutable store](/systems/architecture#state-one-immutable-store),
+so for normal content work you are not managing locks yourself: read, decide, write.
+
+The one rule: **anything that touches the UI must be marshaled to the main thread.** Do not update UI directly from a
+behavior or an AI-thread callback. Use the provided main-thread event path for display updates. See the
+[architecture note](/systems/architecture#threading-model-light).
 
 ## Don't hardcode tuning
 
