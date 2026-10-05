@@ -86,13 +86,13 @@ becomes a greedy one.
 
 Situation amplifies trait changes. These multipliers stack on top of the base impact:
 
-| Situation | Effect |
+| Trigger | Effect |
 | --- | --- |
-| Night operations | 1.5x Paranoia and Stress changes |
-| Police district | 2x Stress and Caution changes |
-| High heat (above 70) | 1.8x Paranoia and Caution changes |
-| Bribing under pressure (heat above 50) | 2x Confidence, Dominance, MoralFlexibility, Stress |
-| Repeated corruption | 1.5x Narcissism, Conscience, Guilt, Dominance |
+| At night | 1.5x Paranoia and Stress changes |
+| Near police presence | 2x Stress and Caution changes |
+| High section heat (above 70) | 1.8x Paranoia, Caution, and Stress changes |
+| Bribing while hot (heat above 50) | 2x Confidence, Dominance, Moral Flexibility, Stress |
+| Repeated corruption (several successful bribes) | 1.5x Narcissism, Conscience, Guilt, Dominance |
 
 ## Trait interactions
 
