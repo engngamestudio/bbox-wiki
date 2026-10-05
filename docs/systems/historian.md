@@ -23,6 +23,11 @@ The Historian runs **once**, at the start. After that, the living systems take o
 [traits](/systems/traits) shift from behavior, the [Director](/systems/director) applies pressure, and
 [drama](/systems/drama) fires from thresholds. The Historian is the initial condition, not an ongoing engine.
 
+> [!NOTE]
+> A **living, dynamic Historian** that keeps writing history as the game runs (recording new feuds, debts, and
+> turning points onto pawns over time, not just at worldgen) is **under research**. Today the Historian runs once at
+> the start; the ongoing version is a direction we are exploring, not a shipped feature.
+
 ## Legends
 
 Backstories are built from **Legends**: reusable, data-defined life-story patterns. A Legend is a template like
