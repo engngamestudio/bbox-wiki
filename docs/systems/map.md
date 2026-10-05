@@ -79,7 +79,8 @@ The map carries toggleable overlays. Each answers a different strategic question
 | Layer | Shows | Read it to... |
 | --- | --- | --- |
 | Zones / Sections | Neighborhood boundaries and type (residential, commercial, industrial, drug trade) | Know the character of each block |
-| Heat (Crime Rate) | Per-section [heat](/systems/heat), 0 to 100 | See where police pressure is building |
+| Heat | The per-section [heat](/systems/heat) value (0 to 100) printed on each section | See exact police pressure per block |
+| Crime Rate | The same [heat](/systems/heat) values shaded as a color heatmap with a legend | See the pressure pattern across the map at a glance |
 | For Sale | Properties currently on the market | Find [real estate](/systems/real-estate) to acquire |
 | My Properties | Everything you own | Manage your portfolio and income |
 | Protection Rackets | Businesses marked for or paying protection | Track your [racket](/systems/economy#other-income) income |

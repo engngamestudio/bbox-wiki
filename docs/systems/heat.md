@@ -2,7 +2,12 @@
 
 Heat is the game's memory of your crimes, tracked **per city section**. It rises when crime happens on a block and
 decays when the block goes quiet. Heat is what pulls police toward you and feeds the [Director's](/systems/director)
-pressure. On the map, the "Crime Rate" overlay is simply heat's display name.
+pressure.
+
+> [!NOTE]
+> The map has two layers that both read this one heat value: a **Heat** layer that prints the numeric value on each
+> section, and a **Crime Rate** layer that shades the same values as a color heatmap with a legend. They are two
+> views of the same number, not two different metrics. Everything on this page is that one value.
 
 ## The model
 
