@@ -1,0 +1,46 @@
+[
+    {
+        "name": "DO_WANDER",
+        "preconditions": {},
+        "postconditions": {
+            "IsWandering": true
+        },
+        "cost": 1,
+        "behaviorName": "street_bum_DO_WANDER",
+        "metadata": {
+            "ExecutionAnimation": "walk_down",
+            "ExecutionDuration": 1.0,
+            "CompletionAnimation": "idle_down"
+        }
+    },
+    {
+        "name": "FLEE_FROM_THREAT",
+        "preconditions": {
+            "ThreatNearby": true
+        },
+        "postconditions": {
+            "Safe": true
+        },
+        "cost": 1,
+        "behaviorName": "FLEE_FROM_THREAT",
+        "metadata": {
+            "ExecutionAnimation": "walk_down",
+            "CompletionAnimation": "idle_down"
+        }
+    },
+    {
+        "name": "ENGAGE_THREAT",
+        "preconditions": {
+            "ThreatNearby": true
+        },
+        "postconditions": {
+            "ThreatEliminated": true
+        },
+        "cost": 1,
+        "behaviorName": "ENGAGE_THREAT",
+        "metadata": {
+            "ExecutionAnimation": "walk_down",
+            "CompletionAnimation": "idle_down"
+        }
+    }
+]
