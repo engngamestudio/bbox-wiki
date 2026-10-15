@@ -7,6 +7,9 @@ hero:
   tagline: Run a criminal empire where your crew think for themselves. This is the live reference for every system, formula, and mod hook.
   actions:
     - theme: brand
+      text: Wishlist on Steam
+      link: https://store.steampowered.com/app/4832190/BBox_Kingpin/
+    - theme: alt
       text: Game Systems
       link: /systems/
     - theme: alt

@@ -52,7 +52,8 @@ export default defineConfig({
       { text: 'Overview', link: '/guide/overview' },
       { text: 'Game Systems', link: '/systems/' },
       { text: 'Modding', link: '/modding/' },
-      { text: 'Downloads', link: '/downloads/' }
+      { text: 'Downloads', link: '/downloads/' },
+      { text: 'Steam', link: 'https://store.steampowered.com/app/4832190/BBox_Kingpin/' }
     ],
 
     sidebar: {

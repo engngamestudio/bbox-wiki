@@ -6,6 +6,8 @@ changes here.
 
 Live site: https://engngamestudio.github.io/bbox-wiki/
 
+Game on Steam: https://store.steampowered.com/app/4832190/BBox_Kingpin/
+
 ## Local development
 
 ```bash
