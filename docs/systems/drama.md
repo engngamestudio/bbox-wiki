@@ -9,7 +9,7 @@ of [traits](/systems/traits) crossing thresholds and the systems reacting.
 | Drama type | Triggered by | Deep dive |
 | --- | --- | --- |
 | **Defection / betrayal** | Loyalty collapses while Greed or Fear is high | [Betrayal](/systems/betrayal) |
-| **Theft from the crew** | High Greed with low Loyalty | [Betrayal](/systems/betrayal) |
+| **Robbing the boss** | Greedy, morally flexible, disloyal and resentful all at once | [this page](#robbing-the-boss) |
 | **Ratting to police** | Very low Loyalty with high Fear | [Betrayal](/systems/betrayal) |
 | **Mental break (rage)** | High Aggression with high Stress | this page |
 | **Catatonic breakdown** | High Depression with high Stress | this page |
@@ -76,6 +76,46 @@ Stress is the master variable for breakdowns. It rises from dangerous and high-p
 
 The lesson for the player: **Stress is a resource you spend.** Overwork a crew and you convert them into
 liabilities.
+
+## Robbing the boss
+
+One of your own crew walking into your stash house and pocketing your cash is one of the sharpest betrayals in
+the game, so it is deliberately **rare and specific**. It does not fire on a single bad trait. The member has to
+be greedy, morally flexible, disloyal **and** resentful all at the same moment:
+
+| Condition | Threshold |
+| --- | --- |
+| Greed | over 80 |
+| Moral Flexibility | over 60 |
+| Loyalty | under 30 |
+| Resentment | over 50 |
+
+All four have to hold together. Any one of them missing and he keeps working. Loyalty sits in a deliberate band:
+below 20 he would just walk out (defection wins), so the 20-to-30 window is where he is disloyal enough to rob
+you but not quite gone.
+
+He also needs **something to steal**. The goal only activates when one of your stash houses actually holds cash;
+an empty stash is not a target. The moment a stash is drained to zero it stops being a target on its own, so a
+thief can never get stuck looting an empty room.
+
+### He takes a cut, not everything
+
+Pulling the job **cools his greed down**: a successful score drops his Greed back under the threshold that let
+him act, so the goal switches itself off. He grabs one cut and backs off instead of emptying every property you
+own, and because greed does not come roaring back on its own, it is a long time before he would consider it
+again. The point is to make the theft a **moment you get to react to**, not a faucet that drains you dry while
+you watch.
+
+### What you do about it
+
+The theft is a real loss: the money comes straight out of that stash house's balance and into his pocket, and an
+event card names him so you cannot miss it. From there it is on you. Order a hit, let the rest of the crew deal
+with him, cut him loose, or pay better and keep him. He made his move. Now you make yours.
+
+> [!NOTE]
+> None of this is a scripted "theft event." Every line above is a trait threshold or a world fact the planner
+> reads. Change the numbers and you change who robs you and how often. See the
+> [trait-gated goal table](/systems/traits#trait-gated-goals).
 
 ## Contagion
 
