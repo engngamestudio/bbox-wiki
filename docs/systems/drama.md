@@ -6,20 +6,26 @@ of [traits](/systems/traits) crossing thresholds and the systems reacting.
 
 ## What counts as drama
 
-| Drama type | Triggered by | Deep dive |
-| --- | --- | --- |
-| **Defection / betrayal** | Loyalty collapses while Greed or Fear is high | [Betrayal](/systems/betrayal) |
-| **Robbing the boss** | Greedy, morally flexible, disloyal and resentful all at once | [this page](#robbing-the-boss) |
-| **Ratting to police** | Very low Loyalty with high Fear | [Betrayal](/systems/betrayal) |
-| **Mental break (rage)** | High Aggression with high Stress | this page |
-| **Catatonic breakdown** | High Depression with high Stress | this page |
-| **Substance binge** | High Craving with high Stress | this page |
-| **Refusing orders** | High Resentment with low Loyalty | this page |
-| **Intimidating a random local** | High Aggression with moderate Stress | this page |
-| **Inspiring the crew** | High Confidence with natural Leadership | this page |
-| **Suicide** | Extreme Depression, Hopelessness and Stress together | this page |
+Every beat is gated on traits crossing exact thresholds (all conditions in a row must hold at once). Higher
+priority wins when a member qualifies for more than one. Numbers are first-pass and still being tuned.
 
-The exact cutoffs are in the [trait-gated goal table](/systems/traits#trait-gated-goals).
+| Drama beat | Fires when (all must hold) | Also needs | Priority |
+| --- | --- | --- | --- |
+| **Ratting to police** | Loyalty &lt; 15, Fear &gt; 70 | a corrupt-cop contact | 11 |
+| **Mental break (rage)** | Aggression &gt; 70, Stress &gt; 80 | — | 11 |
+| **Suicide** | Suicidal Ideation &gt; 85, Hopelessness &gt; 70 | — | 11 |
+| **Defection / betrayal** | Loyalty &lt; 20 | — | 10 |
+| **Catatonic breakdown** | Depression &gt; 80, Stress &gt; 70 | — | 9 |
+| **Robbing the boss** | Greed &gt; 80, Moral Flexibility &gt; 60, Loyalty &lt; 30, Resentment &gt; 50 | a stash with cash | 8 |
+| **Substance binge** | Cocaine Craving &gt; 75, Stress &gt; 60 | — | 8 |
+| **Intimidating a local** | Aggression &gt; 60, Stress &gt; 50 | someone nearby | 8 |
+| **Refusing orders** | Resentment &gt; 60, Loyalty &lt; 30 | — | 7 |
+| **Inspiring the crew** | Confidence &gt; 80, natural Leadership &gt; 60 | — | 7 |
+
+A few have a self-limit so they do not spam: **robbing the boss** cools the thief's greed below its own gate
+after a score (one cut, then he backs off), and **defection / ratting** have their own lifecycle in
+[Betrayal](/systems/betrayal). The exact cutoffs also live in the
+[trait-gated goal table](/systems/traits#trait-gated-goals).
 
 ## How a drama event fires
 
@@ -76,46 +82,6 @@ Stress is the master variable for breakdowns. It rises from dangerous and high-p
 
 The lesson for the player: **Stress is a resource you spend.** Overwork a crew and you convert them into
 liabilities.
-
-## Robbing the boss
-
-One of your own crew walking into your stash house and pocketing your cash is one of the sharpest betrayals in
-the game, so it is deliberately **rare and specific**. It does not fire on a single bad trait. The member has to
-be greedy, morally flexible, disloyal **and** resentful all at the same moment:
-
-| Condition | Threshold |
-| --- | --- |
-| Greed | over 80 |
-| Moral Flexibility | over 60 |
-| Loyalty | under 30 |
-| Resentment | over 50 |
-
-All four have to hold together. Any one of them missing and he keeps working. Loyalty sits in a deliberate band:
-below 20 he would just walk out (defection wins), so the 20-to-30 window is where he is disloyal enough to rob
-you but not quite gone.
-
-He also needs **something to steal**. The goal only activates when one of your stash houses actually holds cash;
-an empty stash is not a target. The moment a stash is drained to zero it stops being a target on its own, so a
-thief can never get stuck looting an empty room.
-
-### He takes a cut, not everything
-
-Pulling the job **cools his greed down**: a successful score drops his Greed back under the threshold that let
-him act, so the goal switches itself off. He grabs one cut and backs off instead of emptying every property you
-own, and because greed does not come roaring back on its own, it is a long time before he would consider it
-again. The point is to make the theft a **moment you get to react to**, not a faucet that drains you dry while
-you watch.
-
-### What you do about it
-
-The theft is a real loss: the money comes straight out of that stash house's balance and into his pocket, and an
-event card names him so you cannot miss it. From there it is on you. Order a hit, let the rest of the crew deal
-with him, cut him loose, or pay better and keep him. He made his move. Now you make yours.
-
-> [!NOTE]
-> None of this is a scripted "theft event." Every line above is a trait threshold or a world fact the planner
-> reads. Change the numbers and you change who robs you and how often. See the
-> [trait-gated goal table](/systems/traits#trait-gated-goals).
 
 ## Contagion
 
